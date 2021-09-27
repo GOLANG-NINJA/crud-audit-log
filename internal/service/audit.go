@@ -22,7 +22,7 @@ func NewAudit(repo Repository) *Audit {
 
 func (s *Audit) Insert(ctx context.Context, req *audit.LogRequest) error {
 	item := audit.LogItem{
-		Action:    req.GetEntity().String(),
+		Action:    req.GetAction().String(),
 		Entity:    req.GetEntity().String(),
 		EntityID:  req.GetEntityId(),
 		Timestamp: req.GetTimestamp().AsTime(),
