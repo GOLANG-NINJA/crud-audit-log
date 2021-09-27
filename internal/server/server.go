@@ -4,16 +4,16 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/GOLANG-NINJA/crud-audit-log/internal/domain"
+	"github.com/GOLANG-NINJA/crud-audit-log/pkg/models/audit"
 	"google.golang.org/grpc"
 )
 
 type Server struct {
 	grpcSrv     *grpc.Server
-	auditServer domain.AuditServiceServer
+	auditServer audit.AuditServiceServer
 }
 
-func New(auditServer domain.AuditServiceServer) *Server {
+func New(auditServer audit.AuditServiceServer) *Server {
 	return &Server{
 		grpcSrv:     grpc.NewServer(),
 		auditServer: auditServer,
@@ -28,7 +28,7 @@ func (s *Server) ListenAndServe(port int) error {
 		return err
 	}
 
-	domain.RegisterAuditServiceServer(s.grpcSrv, s.auditServer)
+	audit.RegisterAuditServiceServer(s.grpcSrv, s.auditServer)
 
 	if err := s.grpcSrv.Serve(lis); err != nil {
 		return err

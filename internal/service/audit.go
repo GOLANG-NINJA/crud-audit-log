@@ -4,6 +4,7 @@ import (
 	"context"
 
 	"github.com/GOLANG-NINJA/crud-audit-log/internal/domain"
+	"github.com/GOLANG-NINJA/crud-audit-log/pkg/models/audit"
 )
 
 type Repository interface {
@@ -20,7 +21,7 @@ func NewAudit(repo Repository) *Audit {
 	}
 }
 
-func (s *Audit) Insert(ctx context.Context, req *domain.LogRequest) error {
+func (s *Audit) Insert(ctx context.Context, req *audit.LogRequest) error {
 	item := domain.LogItem{
 		Action:    req.GetEntity().String(),
 		Entity:    req.GetEntity().String(),

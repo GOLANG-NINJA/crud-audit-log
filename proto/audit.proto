@@ -4,7 +4,7 @@ package audit;
 
 import "google/protobuf/timestamp.proto";
 
-option go_package = "../internal/domain";
+option go_package = "../pkg/models/audit";
 
 message LogRequest {
   enum Actions {
