@@ -3,7 +3,7 @@ package server
 import (
 	"context"
 
-	"github.com/GOLANG-NINJA/crud-audit-log/pkg/models/audit"
+	audit "github.com/GOLANG-NINJA/crud-audit-log/pkg/domain"
 )
 
 type AuditService interface {

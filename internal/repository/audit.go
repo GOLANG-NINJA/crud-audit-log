@@ -4,13 +4,13 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/GOLANG-NINJA/crud-audit-log/internal/domain"
+	audit "github.com/GOLANG-NINJA/crud-audit-log/pkg/domain"
 )
 
 type Audit struct {
 }
 
-func (r *Audit) Insert(ctx context.Context, item domain.LogItem) error {
+func (r *Audit) Insert(ctx context.Context, item audit.LogItem) error {
 	fmt.Printf("INSERTED %+v\n", item)
 	return nil
 }
